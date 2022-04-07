@@ -42,6 +42,8 @@
     <section class="hero">
         <div class="container">
             <div class="d-flex mt-4">
+                <!-- подписчики -->
+                <h2>Получить подписчиков</h2>
                 <form action="config/vk_wall.php" method="post">
                     <!-- token -->
                     <div class="row g-3 align-items-center">
@@ -70,7 +72,7 @@
                             </div>
                             <div class="col-auto">
                                 <span class="form-text">
-                                    Скопируйте и вставьте в это поле ссылку 
+                                    Скопируйте и вставьте в это поле ссылку
                                 </span>
                             </div>
                         </div>
@@ -90,6 +92,59 @@
                     <button type="submit" class="btn btn-success mt-4">Отправить</button>
 
                 </form>
+                <!-- публикации -->
+                <h2>Получить публикации группы</h2>
+                <form action="config/vk_wall_group.php" method="post">
+                    <!-- token -->
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputToken" class="col-form-label">Ведите токен</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputToken" class="form-control" name="token">
+                        </div>
+                        <div class="col-auto">
+                            <span class="form-text">
+                                Скопируйте и вставьте в это поле ваш токен
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <h3>Получить публикации</h3>
+                        <!-- group id -->
+                        <div class="row g-3 align-items-center mt-4 mb-4">
+                            <div class="col-auto">
+                                <label for="group_link" class="col-form-label">Введите ссылку группы</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="group_link" class="form-control" name="group_link">
+                            </div>
+                            <div class="col-auto">
+                                <span class="form-text">
+                                    Скопируйте и вставьте в это поле ссылку
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-6 left">
+                            <select class="form-select" name="get_methods">
+                                <option selected>Выбрать</option>
+                                <option value="1">Получить список публикаций</option>
+                            </select>
+
+                        </div>
+                        <div class="col-6 right">
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-4">Отправить</button>
+
+                </form>
+
+
+
             </div>
         </div>
     </section>

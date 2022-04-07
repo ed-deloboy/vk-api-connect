@@ -20,19 +20,24 @@ switch ($methods) {
 
 // $file = file_get_contents('https://api.vk.com/method/groups.getMembers?group_id=rem_service_skynet&count=100&fields=first_name,last_name,sex,online&access_token='.$my_token.'&v=5.120');
 
+// Запрос подписчиков аккаунта
 $request_id = file_get_contents("https://api.vk.com/method/users.get?user_ids=" . $user_byId . "&access_token=" . $token . "&v=5.120");
 
 $ansver = json_decode($request_id, true);
 
-$request_subscribe = file_get_contents("https://api.vk.com/method/".$methods."?user_id=" . $ansver['response'][0]['id'] . "&fields=id,first_name,last_name,about,bdate&access_token=" . $token . "&v=5.120", true);
+$request_subscribe = file_get_contents("https://api.vk.com/method/" . $methods . "?user_id=" . $ansver['response'][0]['id'] . "&fields=id,first_name,last_name,about,bdate,city&access_token=" . $token . "&v=5.120", true);
 
 $ansver_subscribe = json_decode($request_subscribe, true);
 
+// Сокращенная ссылка аккаунта
 
+$request_url = file_get_contents('https://api.vk.com/method/wall.get?&domain=rem_service_skynet&access_token=' . $token . '&v=5.120');
 
-// echo '<pre>';
+$ansver_url = json_decode($request_url, true);
 
-// print_r($ansver_subscribe);
+echo '<pre>';
+
+print_r($ansver_url);
 
 ?>
 
@@ -68,17 +73,25 @@ $ansver_subscribe = json_decode($request_subscribe, true);
 
                 <li class="mt-4 list-group-item bg-dark text-white">
                     <div><?= $i ?></div>
-                    <div class="">
-                        ID <?= $ansver_subscribe['response']['items'][$i]['id'] ?>
-                    </div>
+                    <div class="">ID <?= $ansver_subscribe['response']['items'][$i]['id'] ?></div>
                     <div></div>
                     <div>Имя: <?= $ansver_subscribe['response']['items'][$i]['first_name'] ?></div>
                     <div>Фамилия: <?= $ansver_subscribe['response']['items'][$i]['last_name'] ?></div>
                     <div>Дата рождения: <?= $ansver_subscribe['response']['items'][$i]['bdate'] ?></div>
+                    <?php
+
+                    if (isset($ansver_subscribe['response']['items'][$i]['city'])) {
+                    ?>
+                        <div><?= $ansver_subscribe['response']['items'][$i]['first_name'] ?> из города : <?= $ansver_subscribe['response']['items'][$i]['city']['title'] ?></div>
+                    <?php
+                    } else {
+                    ?>
+                        <div>У <?= $ansver_subscribe['response']['items'][$i]['first_name'] ?> город не указан</div>
+                    <?php
+                    }
+                    ?>
                     <div>Описание аккаунта: <?= $ansver_subscribe['response']['items'][$i]['about'] ?></div>
                 </li>
-
-
             <?php
             }
             ?>
