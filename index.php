@@ -42,7 +42,7 @@
     <section class="hero">
         <div class="container">
             <div class="d-flex mt-4">
-                <form action="config/vk_api.php" method="post">
+                <form action="config/vk_wall.php" method="post">
                     <!-- token -->
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
@@ -59,18 +59,18 @@
                     </div>
 
                     <div class="col-12 mt-4">
-                        <h3>Выборка по группам</h3>
+                        <h3>Получить подписчиков</h3>
                         <!-- group id -->
                         <div class="row g-3 align-items-center mt-4 mb-4">
                             <div class="col-auto">
-                                <label for="group_id" class="col-form-label">Введите id группы после /</label>
+                                <label for="user_byId" class="col-form-label">Введите ссылку пользователя</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="group_id" class="form-control" name="group_id" value="https://vk.com/">
+                                <input type="text" id="user_byId" class="form-control" name="user_byId">
                             </div>
                             <div class="col-auto">
                                 <span class="form-text">
-                                    Скопируйте и вставьте в это поле id группы
+                                    Скопируйте и вставьте в это поле ссылку 
                                 </span>
                             </div>
                         </div>
@@ -78,8 +78,7 @@
                         <div class="col-6 left">
                             <select class="form-select" name="get_methods">
                                 <option selected>Выбрать</option>
-                                <option value="1">Группам</option>
-                                <option value="2">По выбранной категории</option>
+                                <option value="1">Получить список подписчиков</option>
                             </select>
 
                         </div>
