@@ -41,25 +41,19 @@
     </header>
     <section class="hero">
         <div class="container">
-            <div class="mt-4">
-                <!-- подписчики -->
-                <h2>Получить подписчиков</h2>
-                <form class="m-4" action="config/vk_wall.php" method="post">
-                    <!-- token -->
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputToken" class="col-form-label">Ведите токен</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" id="inputToken" class="form-control" name="token">
-                        </div>
-                        <div class="col-auto">
-                            <span class="form-text">
-                                Скопируйте и вставьте в это поле ваш токен
-                            </span>
-                        </div>
-                    </div>
 
+            <div class="mt-4">
+                <!-- token -->
+                <div class="row g-3 align-items-center col-6">
+                    <div class="col-auto">
+                        <label for="inputToken" class="col-form-label">Ведите токен</label>
+                    </div>
+                    <div class="col-8">
+                        <input form="userForm" type="text" id="inputToken" class="form-control" name="token">
+                    </div>
+                </div>
+                <!-- подписчики -->
+                <form id="userForm" class="m-4 p-3 bg-light rounded" action="config/vk_user.php" method="post">
                     <div class="col-12 mt-4">
                         <h3>Получить подписчиков</h3>
                         <!-- group id -->
@@ -67,84 +61,38 @@
                             <div class="col-auto">
                                 <label for="user_byId" class="col-form-label">Введите ссылку пользователя</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-6">
                                 <input type="text" id="user_byId" class="form-control" name="user_byId">
-                            </div>
-                            <div class="col-auto">
-                                <span class="form-text">
-                                    Скопируйте и вставьте в это поле ссылку
-                                </span>
                             </div>
                         </div>
 
-                        <div class="col-6 left">
+                        <div class="col-4">
                             <select class="form-select" name="get_methods">
                                 <option selected>Выбрать</option>
                                 <option value="1">Получить список подписчиков</option>
+                                <option value="2">Получить список друзей</option>
                             </select>
 
                         </div>
-                        <div class="col-6 right">
-
+                        <div class="col-12 mt-4">
+                            <h3 class="h5 mt-4">Выберите дополнения</h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="avatar" value="1" id="checkBoxAvatar">
+                                <label class="form-check-label" for="checkBoxAvatar">
+                                    Показать аватар
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="common" value="1" id="checkCommonCounts">
+                                <label class="form-check-label" for="checkCommonCounts">
+                                    Показать количество общих друзей
+                                </label>
+                            </div>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-success mt-4">Отправить</button>
-
                 </form>
-                <!-- публикации -->
-                <h2>Получить публикации группы</h2>
-                <form class="m-4" action="config/vk_wall_group.php" method="post">
-                    <!-- token -->
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputToken" class="col-form-label">Ведите токен</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" id="inputToken" class="form-control" name="token">
-                        </div>
-                        <div class="col-auto">
-                            <span class="form-text">
-                                Скопируйте и вставьте в это поле ваш токен
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-4">
-                        <h3>Получить публикации</h3>
-                        <!-- group id -->
-                        <div class="row g-3 align-items-center mt-4 mb-4">
-                            <div class="col-auto">
-                                <label for="group_link" class="col-form-label">Введите ссылку группы</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="group_link" class="form-control" name="group_link">
-                            </div>
-                            <div class="col-auto">
-                                <span class="form-text">
-                                    Скопируйте и вставьте в это поле ссылку
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="col-6 left">
-                            <select class="form-select" name="get_methods">
-                                <option selected>Выбрать</option>
-                                <option value="1">Получить список публикаций</option>
-                            </select>
-
-                        </div>
-                        <div class="col-6 right">
-
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-success mt-4">Отправить</button>
-
-                </form>
-
-
-
             </div>
         </div>
     </section>
