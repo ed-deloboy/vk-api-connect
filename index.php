@@ -41,10 +41,10 @@
     </header>
     <section class="hero">
         <div class="container">
-            <div class="d-flex mt-4">
+            <div class="mt-4">
                 <!-- подписчики -->
                 <h2>Получить подписчиков</h2>
-                <form action="config/vk_wall.php" method="post">
+                <form class="m-4" action="config/vk_wall.php" method="post">
                     <!-- token -->
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
@@ -94,7 +94,7 @@
                 </form>
                 <!-- публикации -->
                 <h2>Получить публикации группы</h2>
-                <form action="config/vk_wall_group.php" method="post">
+                <form class="m-4" action="config/vk_wall_group.php" method="post">
                     <!-- token -->
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">

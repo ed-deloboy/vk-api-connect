@@ -29,15 +29,11 @@ $request_subscribe = file_get_contents("https://api.vk.com/method/" . $methods .
 
 $ansver_subscribe = json_decode($request_subscribe, true);
 
-// Сокращенная ссылка аккаунта
 
-$request_url = file_get_contents('https://api.vk.com/method/wall.get?&domain=rem_service_skynet&access_token=' . $token . '&v=5.120');
 
-$ansver_url = json_decode($request_url, true);
+// echo '<pre>';
 
-echo '<pre>';
-
-print_r($ansver_url);
+// print_r($ansver_url);
 
 ?>
 

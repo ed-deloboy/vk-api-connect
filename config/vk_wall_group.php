@@ -10,9 +10,9 @@ $request_url = file_get_contents('https://api.vk.com/method/wall.get?&domain=' .
 
 $ansver_url = json_decode($request_url, true);
 
-echo '<pre>';
+// echo '<pre>';
 
-print_r($ansver_url);
+// print_r($ansver_url);
 
 ?>
 
@@ -35,15 +35,28 @@ print_r($ansver_url);
             <p class="h5">На этой странице <?= $ansver_url['response']['count'] ?> записей</p>
             <ul class="mt-4 col-12 list-group">
                 <?php
+
+
                 for ($i = 0; $i < count($ansver_url['response']['items']); $i++) {
+
                 ?>
 
                     <li class="mt-4 list-group-item bg-dark text-white">
                         <div><?= $i ?></div>
-                        <div class="">ID <?= $ansver_url['response']['items'][$i]['id'] ?></div>
+                        <div class="">
+                            ID <?= $ansver_url['response']['items'][$i]['id'] ?>
+                        </div>
+                        <div class="">
+                            Дата и время создания статьи: 
+                            <?php
+                            $date = $ansver_url['response']['items'][$i]['date'];
+                            echo date("d.m.y h:i:s", $date);
+                            ?>
+                        </div>
                         <div></div>
-                        <div>Заголовок: <?= $ansver_url['response']['items'][$i]['text'] ?></div>
-                        <div>Текст: <?= $ansver_url['response']['items'][$i]['text'] ?></div>
+                        <div>
+                            Заголовок: <?= $ansver_url['response']['items'][$i]['text'] ?>
+                        </div>
 
                     </li>
 
